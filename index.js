@@ -65,7 +65,7 @@ async function runSample(textString) {
 
   var config = {
     credentials: {
-      //project_id: projectId,
+      project_id: projectId,
       client_email: clientEmail,
       private_key: privateKey
     }
@@ -107,7 +107,7 @@ async function runSampleContext(textString, body) {
 
   var config = {
     credentials: {
-      //project_id: projectId,
+      project_id: projectId,
       client_email: clientEmail,
       private_key: privateKey
     }
