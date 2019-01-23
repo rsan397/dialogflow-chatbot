@@ -55,14 +55,14 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 //GOOGLE_APPLICATION_CREDENTIALS
 
 async function runSample(textString) {
-  const config = require('./config.js');
+  const creds = require('./config.js');
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
-  const projectId = config.GOOGLE_PROJECT_ID;
-  console.log(projectId);
-  const clientEmail = config.GOOGLE_CLIENT_EMAIL;
-  const privateKey = config.GOOGLE_PRIVATE_KEY;
+  const projectId = creds.GOOGLE_PROJECT_ID;
+  console.log("******" + projectId);
+  const clientEmail = creds.GOOGLE_CLIENT_EMAIL;
+  const privateKey = creds.GOOGLE_PRIVATE_KEY;
 
   var config = {
     project_id: projectId,
@@ -96,13 +96,13 @@ async function runSample(textString) {
 }
 
 async function runSampleContext(textString, body) {
-  const config = require('./config.js');
+  const creds = require('./config.js');
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
-  const projectId = config.GOOGLE_PROJECT_ID;
-  const clientEmail = config.GOOGLE_CLIENT_EMAIL;
-  const privateKey = config.GOOGLE_PRIVATE_KEY;
+  const projectId = creds.GOOGLE_PROJECT_ID;
+  const clientEmail = creds.GOOGLE_CLIENT_EMAIL;
+  const privateKey = creds.GOOGLE_PRIVATE_KEY;
 
   var config = {
     project_id: projectId,
