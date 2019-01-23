@@ -60,14 +60,15 @@ async function runSample(textString) {
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
   const projectId = creds.GOOGLE_PROJECT_ID;
-  console.log("******" + projectId);
   const clientEmail = creds.GOOGLE_CLIENT_EMAIL;
   const privateKey = creds.GOOGLE_PRIVATE_KEY;
 
   var config = {
-    project_id: projectId,
-    client_email: clientEmail,
-    private_key: privateKey
+    credentials: {
+      //project_id: projectId,
+      client_email: clientEmail,
+      private_key: privateKey
+    }
   };
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient(config);
@@ -105,9 +106,11 @@ async function runSampleContext(textString, body) {
   const privateKey = creds.GOOGLE_PRIVATE_KEY;
 
   var config = {
-    project_id: projectId,
-    client_email: clientEmail,
-    private_key: privateKey
+    credentials: {
+      //project_id: projectId,
+      client_email: clientEmail,
+      private_key: privateKey
+    }
   };
 
   // Create a new session
