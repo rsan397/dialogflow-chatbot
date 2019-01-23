@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 });
 
 // define what happens when user calls this specific path
-app.route('/query/:text').get((req, res, next) => {
+app.route('https://abroadvote.herokuapp.com/query/:text').get((req, res, next) => {
   const requestedText = req.params['text'];
   let result = runSample(requestedText);
   result.then(function(value) {
@@ -30,7 +30,7 @@ app.route('/query/:text').get((req, res, next) => {
 });
 
 app.use(myParser.json({extended : true}));
-app.post('/query/:text', (req, res, next) => {
+app.post('https://abroadvote.herokuapp.com/query/:text', (req, res, next) => {
   const requestedText = req.params['text'];
   let body = req.body;
   let result = runSampleContext(requestedText, body);
