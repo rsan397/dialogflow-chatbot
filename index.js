@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('./config.js');
 const express = require('express')
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -58,11 +59,14 @@ async function runSample(textString) {
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
-  const projectId = 'overseas-vote';
+  const projectId = config.GOOGLE_PROJECT_ID;
+  const clientEmail = config.GOOGLE_CLIENT_EMAIL;
+  const privateKey = config.GOOGLE_PRIVATE_KEY;
 
   var config = {
-    projectId: 'overseas-vote',
-    keyFilename: '/Users/rebeccasanders/Desktop/ChatbotFiles/googlePrivateKey.json'
+    project_id: projectId,
+    client_email: clientEmail,
+    private_key: privateKey
   };
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient(config);
@@ -94,11 +98,14 @@ async function runSampleContext(textString, body) {
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
-  const projectId = 'overseas-vote';
+  const projectId = config.GOOGLE_PROJECT_ID;
+  const clientEmail = config.GOOGLE_CLIENT_EMAIL;
+  const privateKey = config.GOOGLE_PRIVATE_KEY;
 
   var config = {
-    projectId: 'overseas-vote',
-    keyFilename: '/Users/rebeccasanders/Desktop/ChatbotFiles/googlePrivateKey.json'
+    project_id: projectId,
+    client_email: clientEmail,
+    private_key: privateKey
   };
 
   // Create a new session
