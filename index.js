@@ -1,6 +1,5 @@
 'use strict';
 
-const config = require('./config.js');
 const express = require('express')
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -56,6 +55,7 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 //GOOGLE_APPLICATION_CREDENTIALS
 
 async function runSample(textString) {
+  const config = require('./config.js');
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
@@ -95,6 +95,7 @@ async function runSample(textString) {
 }
 
 async function runSampleContext(textString, body) {
+  const config = require('./config.js');
   const uuid = require('uuid');
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
