@@ -6,7 +6,6 @@ const app = express();
 const myParser = require("body-parser");
 const cors = require('cors');
 
-
 var corsOptions = {
   origin: 'null',
   optionsSuccessStatus: 200
@@ -14,6 +13,12 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 // app.use(express.static(__dirname));
+
+
+// Home page route.
+app.get('/', function (req, res) {
+  res.send('App home page');
+});
 
 // define what happens when user calls this specific path
 app.route('/query/:text').get((req, res, next) => {
