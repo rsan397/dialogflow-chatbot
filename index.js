@@ -4,6 +4,7 @@ const express = require('express')
 const PORT = process.env.PORT || 5000;
 const app = express();
 const myParser = require("body-parser");
+var router = express.Router();
 const cors = require('cors');
 
 var corsOptions = {
@@ -12,8 +13,18 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
-// app.use(express.static(__dirname));
+// define the home page route
+router.get('/', function (req, res) {
+  res.send('App home page')
+});
+// define the query route
+router.get('/query', function (req, res) {
+  res.send('query dialogflow')
+});
 
+router.get('/query/text', function (req, res) {
+  res.send('query text dialogflow')
+});
 
 // Home page route.
 app.get('/', function (req, res) {
@@ -21,7 +32,7 @@ app.get('/', function (req, res) {
 });
 
 // define what happens when user calls this specific path
-app.route('https://abroadvote.herokuapp.com/query/:text').get((req, res, next) => {
+app.route('/query/:text').get((req, res, next) => {
   const requestedText = req.params['text'];
   let result = runSample(requestedText);
   result.then(function(value) {
@@ -30,7 +41,7 @@ app.route('https://abroadvote.herokuapp.com/query/:text').get((req, res, next) =
 });
 
 app.use(myParser.json({extended : true}));
-app.post('https://abroadvote.herokuapp.com/query/:text', (req, res, next) => {
+app.post('/query/:text', (req, res, next) => {
   const requestedText = req.params['text'];
   let body = req.body;
   let result = runSampleContext(requestedText, body);
