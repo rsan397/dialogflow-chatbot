@@ -60,6 +60,7 @@ async function runSample(textString) {
   const dialogflow = require('dialogflow');
   const sessionId = uuid.v4();
   const projectId = config.GOOGLE_PROJECT_ID;
+  console.log(projectId);
   const clientEmail = config.GOOGLE_CLIENT_EMAIL;
   const privateKey = config.GOOGLE_PRIVATE_KEY;
 
