@@ -8,7 +8,7 @@ var router = express.Router();
 const cors = require('cors');
 
 var corsOptions = {
-  origin: 'http://abroadvote.com',
+  origin: 'www.abroadvote.com',
   optionsSuccessStatus: 200
 }
 
@@ -134,8 +134,8 @@ async function runSampleContext(textString, body) {
   const responses = await sessionClient.detectIntent(request);
 
   const result = responses[0].queryResult;
-  console.log(result);
-  console.log(`  Response: ${result.fulfillmentText}`);
+  //console.log(result);
+  //console.log(`  Response: ${result.fulfillmentText}`);
   // console.log(`  Query: ${result.queryText}`);
   // console.log('Output contexts: ${result.outputContexts}')
   
