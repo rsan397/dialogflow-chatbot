@@ -8,7 +8,7 @@ var router = express.Router();
 const cors = require('cors');
 
 var corsOptions = {
-  origin: 'null',
+  origin: 'http://abroadvote.com',
   optionsSuccessStatus: 200
 }
 
